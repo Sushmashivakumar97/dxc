@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <script>
+            function disb(){
+                document.getElementById('btn').disabled=true;
+            }
+            function check(event){
+                
+                var uname=document.getElementById("username").value;
+                var pword=document.getElementById("password").value;
+                var mobileNo=document.getElementById("mobileNo").value.length;
+                
+                
+                
+                if((uname)!=0){
+                    document.getElementById('btn').disabled=false;
+            
+                }
+            else{
+                    document.getElementById('btn').disabled=true;
+                }
+
+                if((pword)!=0){
+                    document.getElementById('btn').disabled=false;
+            
+                }
+            else{
+                    document.getElementById('btn').disabled=true;
+                }
+
+                if((mobileNo)==10){
+                    //if(document.getElementById("mobileNo").value.length < 10 ){
+                    document.getElementById('btn').disabled=false;
+            
+                }
+            else{
+                    document.getElementById('btn').disabled=true;
+                }
+                
+            }
+            
+        </script>
+    </head>
+    <body onload="disb()"  onkeyup="check(event)">
+           
+        User Name:<input type ="text" name="username" id="username"><br>
+         Password:<input type ="password" name="password" id="password"><br>
+         mobile number:<input type="text" name="mbl" maxlength="10" id="mobileNo"><br>
+         
+        <input type="submit" id="btn" value="Login" onchange="check(event)">
+
+    </body>
+</html>

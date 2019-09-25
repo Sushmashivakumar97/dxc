@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <script>
+            function counter(){
+                var sp=document.getElementById("s1")
+                var n=document.getElementById("txt").value.length
+                sp.innerHTML="remaining character"+(15-n)
+                /* alert("remaining char"+(15-n)) */
+                // document.getElementById("text").innerHTML="remaining char"+(15-n)
+            }
+            
+            
+        </script>
+    </head>
+    <body>
+        <p>maximum characters is 15</p>
+        <input type="text" maxlength="15" id="txt" onkeyup="counter()">
+        <br>
+        <span id="s1"></span>
+        
+    </body>
+
+</html>
