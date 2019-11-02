@@ -1,0 +1,31 @@
+1) Find all the banks from city "Woodbury"
+>db.banklist.find({City:"Woodbury"},{"Bank Name":1})
+
+2) Find all the banks whose closing date is 20-Jun-14
+>db.banklist.find({"Closing Date":"20-Jun-14"})
+
+3) Delete all the banks whose closing date is 20-Jun-14
+>db.banklist.remove({"Closing Date":"20-Jun-14"})
+
+4) Update all the banks from Chicago to have closing date as 31st Oct 2019
+>db.banklist.update({"City":"Chicago"},{$set:{"Closing Date":"31-Oct-19"}},false,true)
+
+5) Find all the banks whose "Bank Name" starts with "A"
+>db.banklist.find({"Bank Name":/^A/})
+
+6) Write the command to export the updated bankList into CSV
+mongoexport -d dxcdb -c banklist --type csv -f "Bank Name,City,ST,CERT,Acquiring Institution,Closing Date,Updated Date"          -o banklist.csv
+
+7) Write the command to export the updated bankList into JSON
+C:\Users\ss607\Documents\training\mongoDb>mongoexport -d dxcdb -c banklist -o banklist.json
+
+8) Write the command to export the bankList city "Chicago" into CSV
+mongoexport -d dxcdb -c banklist --type csv -f "Bank Name,City,ST,CERT,Acquiring Institution,Closing Date,Updated Date"          -q "{\"City\":\"Chicago\"}" -o bnk.csv
+
+9) Write the command to export the bankList city "Chicago" into JSON
+>mongoexport -d dxcdb -c banklist -q "{\"City\":\"Chicago\"}" -o bnk.json
+
+10) Write the command to import the bankList city "Chicago" into mongo
+>mongoimport -d dxcdb -c banklist --file bnk.json
+
+
